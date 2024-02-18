@@ -6,16 +6,29 @@ import { useZxing } from "react-zxing";
 // https://www.npmjs.com/package/react-zxing
 // https://qiita.com/kurab/items/405da90f56cef8bf0c64
 
-export default function BarcodeReader ({ onScan }) {
+interface BarcodeReaderProps {
+  onScan: (scannedCode: string) => void; // onScanは文字列を引数に取り、voidを返す関数
+}
+
+export default function BarcodeReader ({ onScan }: BarcodeReaderProps) {
   const [barcodeError, setBarcodeError] = useState<string | null>(null);
   const [lastScans, setLastScans] = useState<string[]>([]); // スキャン結果を文字列の配列として保持
   const [count, setCount] = useState<number>(0);
 
   const { ref } = useZxing({
     // エラー情報取得
-    onError(error){
-      setBarcodeError(error)
-      console.log(barcodeError)
+    onError(error: unknown){
+      // setBarcodeError(error)
+      // console.log(barcodeError)
+      // エラーオブジェクトがErrorインスタンスであるか確認し、そうであればそのmessageを使用
+      if (error instanceof Error) {
+        setBarcodeError(error.message);
+      } else {
+        // errorがErrorインスタンスでない場合、適切なフォールバック値を設定
+        // 例: errorをstringに変換、もしくはカスタムメッセージを設定
+        setBarcodeError(String(error) || '不明なエラーが発生しました。');
+      }
+      console.log(barcodeError);
     },
     // スキャン結果取得
     onDecodeResult(result) { 

@@ -25,7 +25,7 @@ export default function Home() {
   const [searchCode, setSearchCode] = useState<string>("");
 
   
-  const handleScan = async (code) => {
+  const handleScan = async (code: string) => {
     console.log("handleScan Start")
     // console.log(code)
 
@@ -94,7 +94,7 @@ export default function Home() {
 
     try {
       const response = await fetch(
-          "http://127.0.0.1:8000/purchase/",
+          "https://tech0-gen-5-step4-webapp-kurotest.azurewebsites.net/purchase/",
         {
           method: "POST",
           headers: {

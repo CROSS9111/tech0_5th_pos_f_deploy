@@ -14,6 +14,7 @@
 // export default ProductDisplay;
 import React from "react";
 
+
 const ProductDisplay = ({ product }) => {
   return (
     <div className="w-full max-w-md p-4 border-2 border-blue-500 rounded my-4">
