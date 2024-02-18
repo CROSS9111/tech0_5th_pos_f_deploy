@@ -14,8 +14,18 @@
 // export default ProductDisplay;
 import React from "react";
 
+type Product = {
+  PRD_ID: number;
+  PRD_CD: string;
+  PRD_NAME: string;
+  PRD_PRICE: number;
+};
 
-const ProductDisplay = ({ product }) => {
+type PurchaseDisplayProps = {
+  product : Product| null; // itemsはProduct型のオブジェクトの配列
+};
+
+const ProductDisplay: React.FC<PurchaseDisplayProps>  = ({ product }) => {
   return (
     <div className="w-full max-w-md p-4 border-2 border-blue-500 rounded my-4">
       <div className="flex justify-between">
