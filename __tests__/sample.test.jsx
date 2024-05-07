@@ -8,6 +8,6 @@ describe('Page Component', () => {
     render(<Page />);
 
     // 「いいね」というテキストが初期から表示されていることを確認
-    expect(screen.getByText('スキャン')).toBeInTheDocument();
+    expect(screen.getByText('いやよ！')).toBeInTheDocument();
   });
 });
