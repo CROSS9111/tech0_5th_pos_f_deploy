@@ -14,7 +14,7 @@ const TitleBar: React.FC = () => {
     {/* 中央のタイトル */}
     <div className="flex-1" style={{ flex: 2, display: 'flex', justifyContent: 'center' }}> {/* 50% width */}
       <h1 className="text-black text-3xl font-bold">
-        Tech0 STEP4 POSアプリ
+      最終発表お疲れ様でした！
       </h1>
     </div>
   

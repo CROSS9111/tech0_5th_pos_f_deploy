@@ -135,7 +135,6 @@ export default function Home() {
               >
                 スキャン
               </button>
-              いいね！
               
               {/* ORテキスト */}
               <p className="text-center my-2">OR</p>
